@@ -573,7 +573,32 @@
             </div>
         </div>
     </footer>
-   
-    <script src="js/script.js"></script>
+    <script>
+        const signupForm = document.getElementById('signupForm');
+        
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita recarregar a página
+        
+            const firstName = document.getElementById('firstName').value;
+        
+            // Esconde o formulário de cadastro
+            signupForm.style.display = 'none';
+        
+            // Mostra mensagem de boas-vindas dentro do site
+            const container = document.querySelector('.signup-content');
+            const welcomeMessage = document.createElement('div');
+            welcomeMessage.classList.add('welcome-message');
+            welcomeMessage.innerHTML = `<h2>Bem-vindo, ${firstName}!</h2>
+                                        <p>Sua conta foi criada com sucesso.</p>`;
+            container.appendChild(welcomeMessage);
+        
+            // Redireciona para a página inicial após 2 segundos
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 2000);
+        });
+        </script>
+        
+    
 </body>
 </html>

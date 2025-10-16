@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="img/orange two.png" alt="Além do Limite - Inclusão no Esporte" class="logo-img">
+               
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#categories">Níveis</a></li>
+                <li><a href="#athletes">Atletas</a></li>
+                <li><a href="#signup">Minha Conta</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+</header>
+<section id="signup" class="signup">
+  <div class="container">
+      <div class="section-header">
+          <h2 style="color: white;">Cadastre-se</h2>
+          <p style="color: white;">Faça parte da nossa comunidade e comece sua jornada no esporte inclusivo</p>
+      </div>
+      <div class="signup-content">
+          <form class="signup-form" id="signupForm">
+              <h3>Dados Pessoais</h3>
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="firstName">Nome *</label>
+                      <input type="text" id="firstName" name="firstName" required>
+                      <span class="error-message"></span>
+                  </div>
+                  <div class="form-group">
+                      <label for="lastName">Sobrenome *</label>
+                      <input type="text" id="lastName" name="lastName" required>
+                      <span class="error-message"></span>
+                  </div>
+              </div>
+              
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="email">Email *</label>
+                      <input type="email" id="email" name="email" required>
+                      <span class="error-message"></span>
+                  </div>
+                  <div class="form-group">
+                      <label for="phone">Telefone *</label>
+                      <input type="tel" id="phone" name="phone" required>
+                      <span class="error-message"></span>
+                  </div>
+              </div>
+
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="birthDate">Data de Nascimento *</label>
+                      <input type="date" id="birthDate" name="birthDate" required>
+                      <span class="error-message"></span>
+                  </div>
+                  <div class="form-group">
+                      <label for="gender">Gênero *</label>
+                      <select id="gender" name="gender" required>
+                          <option value="">Selecione</option>
+                          <option value="masculino">Masculino</option>
+                          <option value="feminino">Feminino</option>
+                          <option value="outro">Outro</option>
+                          <option value="nao-informar">Prefiro não informar</option>
+                      </select>
+                      <span class="error-message"></span>
+                  </div>
+              </div>
+
+              <h3>Informações Esportivas</h3>
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="experience">Nível de Experiência *</label>
+                      <select id="experience" name="experience" required>
+                          <option value="">Selecione</option>
+                          <option value="iniciante">Iniciante</option>
+                          <option value="intermediario">Intermediário</option>
+                          <option value="avancado">Avançado</option>
+                          <option value="profissional">Profissional</option>
+                      </select>
+                      <span class="error-message"></span>
+                  </div>
+                  <div class="form-group">
+                      <label for="sportInterest">Modalidade de Interesse *</label>
+                      <select id="sportInterest" name="sportInterest" required>
+                          <option value="">Selecione</option>
+                          <option value="natacao">Natação</option>
+                          <option value="atletismo">Atletismo</option>
+                          <option value="basquete">Basquete em Cadeira de Rodas</option>
+                          <option value="tenis">Tênis de Mesa</option>
+                          <option value="bocha">Bocha</option>
+                          <option value="goalball">Goalball</option>
+                          <option value="volei">Vôlei Sentado</option>
+                          <option value="outro">Outro</option>
+                      </select>
+                      <span class="error-message"></span>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="disability">Tipo de Deficiência (opcional)</label>
+                  <select id="disability" name="disability">
+                      <option value="">Selecione</option>
+                      <option value="fisica">Deficiência Física</option>
+                      <option value="visual">Deficiência Visual</option>
+                      <option value="auditiva">Deficiência Auditiva</option>
+                      <option value="intelectual">Deficiência Intelectual</option>
+                      <option value="multipla">Deficiência Múltipla</option>
+                      <option value="outro">Outro</option>
+                      <option value="nao-informar">Prefiro não informar</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label for="goals">Objetivos e Metas</label>
+                  <textarea id="goals" name="goals" rows="4" placeholder="Conte-nos sobre seus objetivos no esporte..."></textarea>
+              </div>
+
+              <h3>Informações de Acesso</h3>
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="password">Senha *</label>
+                      <input type="password" id="password" name="password" required>
+                      <span class="error-message"></span>
+                  </div>
+                  <div class="form-group">
+                      <label for="confirmPassword">Confirmar Senha *</label>
+                      <input type="password" id="confirmPassword" name="confirmPassword" required>
+                      <span class="error-message"></span>
+                  </div>
+              </div>
+
+              <div class="form-group checkbox-group">
+                  <label class="checkbox-label">
+                      <input type="checkbox" id="terms" name="terms" required>
+                      <span class="checkmark"></span>
+                      Aceito os <a href="#" class="terms-link">Termos de Uso</a> e <a href="#" class="terms-link">Política de Privacidade</a> *
+                  </label>
+                  <span class="error-message"></span>
+              </div>
+
+              <div class="form-group checkbox-group">
+                  <label class="checkbox-label">
+                      <input type="checkbox" id="newsletter" name="newsletter">
+                      <span class="checkmark"></span>
+                      Desejo receber notícias e atualizações por email
+                  </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-signup">
+                  <i class="fas fa-user-plus"></i>
+                  Criar Conta
+              </button>
+          </form>
+      </div>
+  </div>
+</section>
+</div>
+</div>
+<script>
+  const signupForm = document.getElementById('signupForm');
+  
+  signupForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // Evita recarregar a página
+  
+      const firstName = document.getElementById('firstName').value;
+  
+      // Esconde o formulário de cadastro
+      signupForm.style.display = 'none';
+  
+      // Mostra mensagem de boas-vindas dentro do site
+      const container = document.querySelector('.signup-content');
+      const welcomeMessage = document.createElement('div');
+      welcomeMessage.classList.add('welcome-message');
+      welcomeMessage.innerHTML = `<h2>Bem-vindo, ${firstName}!</h2>
+                                  <p>Sua conta foi criada com sucesso.</p>`;
+      container.appendChild(welcomeMessage);
+  
+      // Redireciona para a página inicial após 2 segundos
+      setTimeout(() => {
+          window.location.href = "index.html";
+      }, 2000);
+  });
+  </script>
+</body>
+</html>
