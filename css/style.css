@@ -25,19 +25,6 @@ body {
     color: var(--text-dark);
     background: linear-gradient(135deg, var(--primary-color) 0%, #1e3a8a 100%);
 }
-body::-webkit-scrollbar {
-    width: 8px;
-}
-
-body::-webkit-scrollbar-track {
-    background: #222; /* cor da trilha */
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: #555; /* cor da barra */
-    border-radius: 10px; /* borda arredondada */
-    border: 2px solid #222; /* espaço ao redor */
-}
 
 
 
@@ -55,6 +42,8 @@ body::-webkit-scrollbar-thumb {
     top: 0;
     width: 100%;
     z-index: 1000;
+    padding: 1px 0;
+    height: 95px;
 }
 
 .navbar {
@@ -64,7 +53,7 @@ body::-webkit-scrollbar-thumb {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 1px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
