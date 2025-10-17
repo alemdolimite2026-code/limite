@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Além do Limite - Inclusão no Esporte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: white;
+    }
+
+    /* NAVBAR */
+    .header {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      width: 120px;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-menu li a:hover {
+      color: #f97316;
+    }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: white;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    /* Animação do X */
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translateY(8px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-8px);
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        align-items: center;
+        width: 250px;
+        height: 0;
+        overflow: hidden;
+        border-radius: 10px 0 0 10px;
+      }
+
+      .nav-menu.active {
+        height: 260px;
+        padding: 15px 0;
+        animation: slideDown 0.4s ease forwards;
+      }
+
+      .nav-menu li {
+        opacity: 0;
+        animation: fadeIn 0.4s ease forwards;
+      }
+
+      .nav-menu.active li {
+        animation: fadeIn 0.5s ease forwards;
+      }
+
+      @keyframes slideDown {
+        from { transform: translateY(-20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <img src="img/orange two.png" alt="Além do Limite">
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home">Início</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#categories">Níveis</a></li>
+          <li><a href="#athletes">Atletas</a></li>
+          <li><a href="minhaconta.html">Minha Conta</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO FAKE PRA TESTE -->
+  <section id="home" style="padding-top:100px;text-align:center;">
+    <h1>Bem-vindo ao Além do Limite</h1>
+    <p>Transformando vidas através do esporte inclusivo.</p>
+  </section>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>

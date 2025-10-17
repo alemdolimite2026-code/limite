@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Além do Limite</title>
+    <title>Além do Limite - Inclusão no Esporte</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
         .welcome-message {
@@ -67,7 +67,7 @@
                    
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="#home">Início</a></li>
+                    <li><a href="index.html">Início</a></li>
                     <li><a href="#about">Sobre</a></li>
                     <li><a href="#categories">Níveis</a></li>
                     <li><a href="#athletes">Atletas</a></li>
@@ -223,38 +223,42 @@
       </section>
     </div>
   </div>
+  <script>
+    const signupForm = document.getElementById('signupForm'); // ID certo
   
-<script>
-    const signupForm = document.getElementById('signupForm');
-
     signupForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Evita recarregar a página
-
-        const firstName = document.getElementById('firstName').value;
-
-        // Esconde o formulário
-        signupForm.style.display = 'none';
-
-        // Cria a mensagem estilizada
-        const container = document.querySelector('.signup-content');
-        const welcomeMessage = document.createElement('div');
-        welcomeMessage.classList.add('welcome-message');
-        welcomeMessage.innerHTML = `
-            <div class="success-box">
-                <i class="fas fa-check-circle"></i>
-                <h2>Conta criada com sucesso!</h2>
-                <p>Bem-vindo(a), <strong>${firstName}</strong> 🎉<br>
-                Você será redirecionado para a página inicial em instantes.</p>
-            </div>
-        `;
-        container.appendChild(welcomeMessage);
-
-        // Redireciona para a página inicial após 3 segundos
-        setTimeout(() => {
-            window.location.href = "index.html";
-        }, 3000);
+      e.preventDefault();
+  
+      // Pega o nome do usuário corretamente
+      const userName = document.getElementById('firstName').value;
+  
+      // Salva o nome no localStorage
+      localStorage.setItem('cadastroResumo', JSON.stringify({ nome: userName }));
+  
+      // Oculta o formulário
+      signupForm.style.display = 'none';
+  
+      // Cria a mensagem de boas-vindas com o mesmo estilo
+      const container = document.createElement('div');
+      container.classList.add('welcome-message');
+      container.innerHTML = `
+        <div class="success-box">
+          <i class="fas fa-check-circle"></i>
+          <h2>Bem-vindo, ${userName}!</h2>
+          <p>Seu cadastro foi realizado com sucesso.<br>Você será redirecionado para a página inicial em instantes...</p>
+        </div>
+      `;
+      signupForm.parentNode.appendChild(container);
+  
+      // Redireciona após 3 segundos
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 3000);
     });
-</script>
+  </script>
+  
+
+
 
 
 </body>
