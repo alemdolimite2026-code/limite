@@ -42,8 +42,6 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
-    padding: 1px 0;
-    height: 95px;
 }
 
 .navbar {
@@ -53,7 +51,7 @@ body {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1px 0;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
