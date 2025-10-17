@@ -210,7 +210,7 @@ body::-webkit-scrollbar-thumb {
 
 .btn-primary:hover {
     background: transparent;
-    border-color: var(--secondary-color);
+    border-color: var(--primary-color);
     transform: translateY(-2px);
 }
 
