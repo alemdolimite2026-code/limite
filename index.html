@@ -129,20 +129,22 @@
                     <div class="videos-container">
                         <h4>Vídeos de Treinamento</h4>
                         <div class="videos-grid">
-                            <div class="video-item">
+                            <div class="video-item" data-video-source="video/Vídeo do WhatsApp de 2025-10-17 à(s) 21.56.36_6d28b539.mp4">
                                 <div class="video-thumbnail">
+                                    <img src="img/basquete.png" alt="Thumbnail do Vídeo 1">
                                     <i class="fas fa-play-circle"></i>
                                     <div class="video-overlay">
                                         <span class="video-duration">5:30</span>
-                                    </div>
+                                    </div>         
                                 </div>
                                 <div class="video-info">
                                     <h5>Aquecimento Básico</h5>
                                     <p>Exercícios de alongamento e mobilidade</p>
                                 </div>
                             </div>
-                            <div class="video-item">
+                            <div class="video-item" data-video-source="video/Vídeo do WhatsApp de 2025-10-17 à(s) 22.07.10_541575c3.mp4">
                                 <div class="video-thumbnail">
+                                    <img src="img/gustavo.png" alt="Thumbnail do Vídeo 2">
                                     <i class="fas fa-play-circle"></i>
                                     <div class="video-overlay">
                                         <span class="video-duration">8:15</span>
@@ -441,5 +443,50 @@
 <script src="js/conta.js"></script>
         
     
+</body>
+</html>
+
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <video id="modalVideo" controls autoplay></video>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoModal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            const closeButton = document.querySelector('.close-button');
+            const videoItems = document.querySelectorAll('.video-item');
+
+            videoItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const videoSource = this.dataset.videoSource;
+                    if (videoSource) {
+                        modalVideo.src = videoSource;
+                        modalVideo.setAttribute("controls", "");
+                        videoModal.style.display = 'block';
+                    }
+                });
+            });
+
+            closeButton.addEventListener('click', function() {
+                videoModal.style.display = 'none';
+                modalVideo.pause();
+                modalVideo.src = ''; // Clear video source
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target == videoModal) {
+                    videoModal.style.display = 'none';
+                    modalVideo.pause();
+                    modalVideo.src = ''; // Clear video source
+                }
+            });
+        });
+    </script>
 </body>
 </html>
