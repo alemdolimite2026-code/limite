@@ -142,8 +142,9 @@
                                     <p>Exercícios de alongamento e mobilidade</p>
                                 </div>
                             </div>
-                            <div class="video-item" data-video-source="">
+                            <div class="video-item" data-video-source="video/além do limite vídeo 2.mp4">
                                 <div class="video-thumbnail">
+                                    <img src="img/basket.png" alt="Thumbnail do Vídeo 1">
                                     
                                     <i class="fas fa-play-circle"></i>
                                     <div class="video-overlay">
@@ -155,16 +156,17 @@
                                     <p>Base para todos os esportes adaptados</p>
                                 </div>
                             </div>
-                            <div class="video-item">
+                            <div class="video-item" data-video-source="video/além do limite vídeo 4.mp4">
                                 <div class="video-thumbnail">
+                                    <img src="img/atletismo .png" alt="Thumbnail do Vídeo 1">
                                     <i class="fas fa-play-circle"></i>
                                     <div class="video-overlay">
                                         <span class="video-duration">6:45</span>
                                     </div>
                                 </div>
                                 <div class="video-info">
-                                    <h5>Respiração e Relaxamento</h5>
-                                    <p>Técnicas para controle da respiração</p>
+                                    <h5>Fundamentos do Atletismo</h5>
+                                    <p>Fundamentos básicos para começar no atletismo</p>
                                 </div>
                             </div>
                         </div>
@@ -186,28 +188,30 @@
                     <div class="videos-container">
                         <h4>Vídeos de Treinamento</h4>
                         <div class="videos-grid">
-                            <div class="video-item">
+                            <div class="video-item" data-video-source="video/Samuel.mp4">
                                 <div class="video-thumbnail">
+                                    <img src="img/volei.png" alt="Thumbnail do Vídeo 1">
                                     <i class="fas fa-play-circle"></i>
                                     <div class="video-overlay">
                                         <span class="video-duration">12:20</span>
                                     </div>
                                 </div>
                                 <div class="video-info">
-                                    <h5>Treino de Força</h5>
-                                    <p>Exercícios com resistência moderada</p>
+                                    <h5>Treino sobre a modalidae de volêi</h5>
+                                    <p>Aprenda os fundamentos básicos de volei</p>
                                 </div>
                             </div>
-                            <div class="video-item">
+                            <div class="video-item" data-video-source="video/julia.mp4">
                                 <div class="video-thumbnail">
+                                    <img src="img/futsal.png" alt="Thumbnail do Vídeo 1">
                                     <i class="fas fa-play-circle"></i>
                                     <div class="video-overlay">
                                         <span class="video-duration">15:30</span>
                                     </div>
                                 </div>
                                 <div class="video-info">
-                                    <h5>Coordenção e Equilíbrio</h5>
-                                    <p>Desenvolvendo habilidades motoras</p>
+                                    <h5>Fundamentos de Futsal</h5>
+                                    <p>Aprenda os fundamentos básicos de futsal</p>
                                 </div>
                             </div>
                             <div class="video-item">
@@ -463,26 +467,38 @@
             const videoItems = document.querySelectorAll('.video-item');
 
             videoItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const videoSource = this.dataset.videoSource;
+                item.addEventListener('click', function(e) {
+                    // Prevenir que o clique no ícone ou thumbnail não funcione
+                    e.stopPropagation();
+                    
+                    const videoSource = this.getAttribute('data-video-source');
+                    console.log('Video source:', videoSource); // Debug
+                    
                     if (videoSource) {
                         modalVideo.src = videoSource;
-                        modalVideo.setAttribute("controls", "");
-                        videoModal.style.display = 'block';
+                        modalVideo.setAttribute("controls", "controls");
+                        modalVideo.load(); // Forçar carregamento do vídeo
+                        videoModal.classList.add('show'); // Usar classe para mostrar
+                    } else {
+                        console.warn('Nenhum vídeo source encontrado para este item');
                     }
                 });
             });
 
-            closeButton.addEventListener('click', function() {
-                videoModal.style.display = 'none';
-                modalVideo.pause();
-                modalVideo.src = ''; // Clear video source
-            });
+            if (closeButton) {
+                closeButton.addEventListener('click', function() {
+                    videoModal.classList.remove('show');
+                    modalVideo.pause();
+                    modalVideo.currentTime = 0;
+                    modalVideo.src = ''; // Clear video source
+                });
+            }
 
             window.addEventListener('click', function(event) {
                 if (event.target == videoModal) {
-                    videoModal.style.display = 'none';
+                    videoModal.classList.remove('show');
                     modalVideo.pause();
+                    modalVideo.currentTime = 0;
                     modalVideo.src = ''; // Clear video source
                 }
             });
